@@ -25,8 +25,8 @@
  * @package MapsTv
  * @subpackage tv
  */
-$corePath = $modx->getOption('mapstv.core_path',$config,$modx->getOption('core_path').'components/mapstv/');
-$assetsUrl = $modx->getOption('mapstv.assets_url',$config,$modx->getOption('assets_url').'components/mapstv/');
+$corePath = $modx->getOption('mapstv.core_path', null, $modx->getOption('core_path').'components/mapstv/');
+$assetsUrl = $modx->getOption('mapstv.assets_url', null, $modx->getOption('assets_url').'components/mapstv/');
 
 $modx->lexicon->load('mapstv:default');
 
@@ -34,7 +34,7 @@ switch ($modx->event->name) {
     case 'OnTVInputRenderList':
     	//Add lexicon
     	$modx->controller->addLexiconTopic('mapstv:default');
-    	
+
         $modx->event->output($corePath.'elements/tv/input/');
         break;
 }

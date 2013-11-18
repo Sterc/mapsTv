@@ -28,23 +28,23 @@
 class MapsTvInputRender extends modTemplateVarInputRender {
 
     public function getTemplate() {
-    	$corePath = $this->modx->getOption('mapstv.core_path',$config,$this->modx->getOption('core_path').'components/mapstv/');
+    	$corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
         return $corePath.'elements/tv/tpl/mapstv.input.tpl';
     }
-    
-public function process($value,array $params = array()) {
-        $corePath = $this->modx->getOption('mapstv.core_path',$config,$this->modx->getOption('core_path').'components/mapstv/');
-        $assetsUrl = $this->modx->getOption('mapstv.assets_url',$config,$this->modx->getOption('assets_url').'components/mapstv/');
+
+    public function process($value,array $params = array()) {
+        $corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
+        $assetsUrl = $this->modx->getOption('mapstv.assets_url', null, $this->modx->getOption('assets_url').'components/mapstv/');
 
        	$js = $assetsUrl.'js/mgr/';
  	 	$this->modx->regClientCSS($assetsUrl.'css/mgr.css');
- 		
+
         $this->modx->regClientStartupScript($assetsUrl.'js/lib/Ext.ux.GMapPanel3.js');
         $this->modx->regClientStartupScript($assetsUrl.'js/mgr/mapstv.js');
         //$this->modx->regClientStartupScript('http://maps.google.com/maps/api/js?sensor=false');
 
         $dataArr = $this->modx->fromJSON($value);
-        
+
         $this->setPlaceholder('street',$dataArr['street']);
         $this->setPlaceholder('housenumber',$dataArr['housenumber']);
         $this->setPlaceholder('zipcode',$dataArr['zipcode']);
@@ -54,7 +54,7 @@ public function process($value,array $params = array()) {
         $this->setPlaceholder('latitude',$dataArr['latitude']);
         $this->setPlaceholder('longitude',$dataArr['longitude']);
     }
-  	
+
     public function getLexiconTopics(){
     	return array('mapstv:default');
     }
