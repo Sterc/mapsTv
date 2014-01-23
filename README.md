@@ -19,7 +19,7 @@ Adds a Google Maps and several fields. Ideal for Sites that use allot of address
 - Save and your Done.
 
 ## Template Usage
-- `[[*tvValue:JSONtoChunk=ChunkName]]`
+    [[*tvValue:JSONtoChunk=`ChunkName`]]
 
 ### Placeholders in chunk
 - _Street_ : [[+street]]
