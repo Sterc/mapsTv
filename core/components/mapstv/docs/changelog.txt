@@ -1,3 +1,7 @@
+MapsTv 1.0.1pl
+==============
+- Optimised GEO lookup for not accurate data. 
+
 MapsTv 1.0.0pl
 ==============
 - Initial release.

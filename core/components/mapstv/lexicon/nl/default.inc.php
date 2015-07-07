@@ -27,17 +27,17 @@
  */
 $_lang['mapstv'] = 'Maps Tv';
 
-$_lang['mapstv.street'] = 'Street';
-$_lang['mapstv.housenumber'] = 'Housenumber';
-$_lang['mapstv.zipcode'] = 'Zipcode';
-$_lang['mapstv.city'] = 'City';
-$_lang['mapstv.state'] = 'State';
-$_lang['mapstv.country'] = 'Country';
+$_lang['mapstv.street'] = 'Straat';
+$_lang['mapstv.housenumber'] = 'Huisnummer';
+$_lang['mapstv.zipcode'] = 'Postcode';
+$_lang['mapstv.city'] = 'Woonplaats';
+$_lang['mapstv.state'] = 'Provincie';
+$_lang['mapstv.country'] = 'Land';
 
-$_lang['mapstv.generate'] = 'Generate latitude & longitude and set te marker on the map';
+$_lang['mapstv.generate'] = 'Genereer latitude & longitude en plaats de marker op de kaart';
 
 $_lang['mapstv.latitude'] = 'Latitude';
 $_lang['mapstv.longitude'] = 'Longitude';
 
-$_lang['mapstv.error'] = 'Location error';
-$_lang['mapstv.error_msg'] = 'The address provided has a low accuracy. Check the position of the marker.';
+$_lang['mapstv.error'] = 'Locatie fout';
+$_lang['mapstv.error_msg'] = 'Google kan de locatie niet exact bepalen. Controleer daarom zelf of de marker op de goede plaats staat.';

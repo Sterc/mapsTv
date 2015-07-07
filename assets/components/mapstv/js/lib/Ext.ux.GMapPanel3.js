@@ -667,30 +667,29 @@ buttons: [
             if (accuracy === 0) {
                 this.geoErrorMsg(this.geoErrorTitle, this.geoErrorMsgUnable);
             }else{
+                point = new google.maps.LatLng(place.lat(),place.lng());
+                    //Dirty to change the lat and lon 
+                    var tvId = this.ownerCt.tvId;
+                    Ext.getCmp('mapstv'+tvId+'-latitude').setValue(place.lat());
+                    Ext.getCmp('mapstv'+tvId+'-longitude').setValue(place.lng());     
+                    Ext.getCmp('mapstv'+tvId+'-latitude').fireEvent('change');
+                    Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');               
+                    //End fix
+                if (center){
+                    this.getMap().setCenter(point, this.zoomLevel);
+                    this.lastCenter = point;
+                }
+                if (typeof marker === 'object') {
+                    if (!marker.title){
+                        marker.title = response.formatted_address;
+                    }
+                    var mkr = this.addMarker(point, marker, clear, false, listeners);
+                    if (marker.callback){
+                      marker.callback.call(this, mkr, point);
+                    }
+                }
                 if (accuracy < reqAccuracy) {
-                    this.geoErrorMsg(this.geoErrorTitle, String.format(this.geoErrorMsgAccuracy, response[0].geometry.location_type, this.getLocationTypeInfo(response[0].geometry.location_type,'msg')));
-                }else{
-                    point = new google.maps.LatLng(place.lat(),place.lng());
-                        //Dirty to change the lat and lon 
-                        var tvId = this.ownerCt.tvId;
-                        Ext.getCmp('mapstv'+tvId+'-latitude').setValue(place.lat());
-                        Ext.getCmp('mapstv'+tvId+'-longitude').setValue(place.lng());     
-                        Ext.getCmp('mapstv'+tvId+'-latitude').fireEvent('change');
-                        Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');               
-                        //End fix
-                    if (center){
-                        this.getMap().setCenter(point, this.zoomLevel);
-                        this.lastCenter = point;
-                    }
-                    if (typeof marker === 'object') {
-                        if (!marker.title){
-                            marker.title = response.formatted_address;
-                        }
-                        var mkr = this.addMarker(point, marker, clear, false, listeners);
-                        if (marker.callback){
-                          marker.callback.call(this, mkr, point);
-                        }
-                    }
+                    Ext.Msg.alert(MODx.lang['mapstv.error'], MODx.lang['mapstv.error_msg']);
                 }
             }
         }
