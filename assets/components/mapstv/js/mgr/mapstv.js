@@ -1,8 +1,6 @@
 if (typeof google === 'undefined') {
-    document.write('<script src="http://maps.google.com/maps/api/js?sensor=false"><\/script>');
+    document.write('<script src="http://maps.google.com/maps/api/js"><\/script>');
 }
- 
-
 
 mapsTv = {};
  
@@ -165,9 +163,9 @@ mapsTv.panel = function(config) {
             ,text: _('mapstv.generate')
             ,style: 'margin: 10px 0'
             ,tv: config.tvId
-            ,cls: 'mapstv-button'
+            ,cls: 'x-btn primary-button _mapstv-button'
             ,handler: this.generate
-            ,width:'100%'
+            ,width:'98%'
         },{
             xtype: 'gmappanel'
             ,id: 'tv'+config.tvId+'-gmappanel'
@@ -195,8 +193,10 @@ mapsTv.panel = function(config) {
                             ,listeners:{
                                 drag: function(e){
                                     var LatLng = e.latLng;
-                                    Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng[Object.keys(LatLng)[0]]);
-                                    Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng[Object.keys(LatLng)[1]]);
+									console.log('MOVE #1');
+									console.log(LatLng.lat());
+                                    Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng.lat());
+                                    Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng.lng());
                                     Ext.getCmp('mapstv'+config.tvId+'-latitude').fireEvent('change');
                                     Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');           
                                 }
@@ -215,8 +215,8 @@ mapsTv.panel = function(config) {
                                 ,listeners:{
                                     drag: function(e){
                                         var LatLng = e.latLng;
-                                        Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng[Object.keys(LatLng)[0]]);
-                                        Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng[Object.keys(LatLng)[1]]);
+                                        Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng.lat());
+                                        Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng.lng());
                                         Ext.getCmp('mapstv'+config.tvId+'-latitude').fireEvent('change');
                                         Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');                                                   
                                     }
@@ -315,8 +315,8 @@ Ext.extend(mapsTv.panel,Ext.Container,{
         Ext.getCmp('tv'+tvId+'-gmappanel').geoCodeLookup(address, {title: Ext.getCmp('mapstv'+tvId+'-street').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-housenumber').getValue(), draggable: true}, true, true, {
             drag: function(e){
                 var LatLng = e.latLng;
-                Ext.getCmp('mapstv'+tvId+'-latitude').setValue(LatLng[Object.keys(LatLng)[0]]);
-                Ext.getCmp('mapstv'+tvId+'-longitude').setValue(LatLng[Object.keys(LatLng)[1]]);
+                Ext.getCmp('mapstv'+tvId+'-latitude').setValue(LatLng.lat());
+                Ext.getCmp('mapstv'+tvId+'-longitude').setValue(LatLng.lng());
                 Ext.getCmp('mapstv'+tvId+'-latitude').fireEvent('change');
                 Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');          
             }
