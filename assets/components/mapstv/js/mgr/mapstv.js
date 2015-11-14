@@ -165,7 +165,7 @@ mapsTv.panel = function(config) {
             ,text: _('mapstv.generate')
             ,style: 'margin: 10px 0'
             ,tv: config.tvId
-            ,cls: 'mapstv-button'
+            ,cls: 'x-btn primary-button'
             ,handler: this.generate
             ,width:'100%'
         },{
