@@ -34,7 +34,7 @@ $_lang['mapstv.city'] = 'City';
 $_lang['mapstv.state'] = 'State';
 $_lang['mapstv.country'] = 'Country';
 
-$_lang['mapstv.generate'] = 'Generate latitude & longitude and set te marker on the map';
+$_lang['mapstv.generate'] = 'Generate latitude & longitude and set the marker on the map';
 
 $_lang['mapstv.latitude'] = 'Latitude';
 $_lang['mapstv.longitude'] = 'Longitude';
