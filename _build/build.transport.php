@@ -10,13 +10,13 @@ function getSnippetContent($filename) {
 $tstart = explode(' ', microtime());
 $tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
- 
+
 /* define package names */
 define('PKG_NAME','MapsTv');
 define('PKG_NAME_LOWER','mapstv');
-define('PKG_VERSION','1.0.1');
+define('PKG_VERSION','1.0.2');
 define('PKG_RELEASE','pl');
- 
+
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
@@ -30,17 +30,17 @@ $sources = array(
     'source_core' => $root.'core/components/'.PKG_NAME_LOWER,
 );
 unset($root);
- 
+
 /* override with your own defines here (see build.config.sample.php) */
 require_once $sources['build'] . 'build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
- 
+
 $modx= new modX();
 $modx->initialize('mgr');
 echo XPDO_CLI_MODE ? '' : '<pre>';
 $modx->setLogLevel(modX::LOG_LEVEL_INFO);
 $modx->setLogTarget('ECHO');
- 
+
 $modx->loadClass('transport.modPackageBuilder','',false, true);
 $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
@@ -191,19 +191,3 @@ $totalTime= sprintf("%2.4f s", $totalTime);
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Package Built.<br />\nExecution time: {$totalTime}\n");
 
 exit ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
