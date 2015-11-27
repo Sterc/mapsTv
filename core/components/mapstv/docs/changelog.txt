@@ -1,6 +1,13 @@
+MapsTv 1.0.2pl
+==============
+- Added Czech translation
+- Updated English lexicon
+- Optimized layout for modX 2.3+
+- Fixed crash on not found data
+
 MapsTv 1.0.1pl
 ==============
-- Optimised GEO lookup for not accurate data. 
+- Optimized GEO lookup for not accurate data.
 
 MapsTv 1.0.0pl
 ==============
