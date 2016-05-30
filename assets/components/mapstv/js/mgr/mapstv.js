@@ -1,5 +1,5 @@
 if (typeof google === 'undefined') {
-    document.write('<script src="http://maps.google.com/maps/api/js"><\/script>');
+    document.write('<script src="//maps.google.com/maps/api/js"><\/script>');
 }
 
 mapsTv = {};
