@@ -1,12 +1,12 @@
 # MapsTV
 Custom MODX Google Maps Marker Template Variable.
-Adds a Google Maps and several fields. Ideal for Sites that use allot of address related information.
+Adds a Google Maps and several fields. Ideal for Sites that use a lot of address related information.
 
 ## Features
-- Clean interface.
+- Clean interface
 - Google Maps Preview
-- Generate Latitude and Longitude with one button click.
-- Drag 'n Drop to easily find and change the latitude and longitude of correct location.
+- Generate Latitude and Longitude with one button click
+- Drag 'n Drop to easily find and change the latitude and longitude of correct location
 - Stored in JSON
 - Allows several instances of Google Maps
 - Snippet for JSONtoChunk
@@ -14,9 +14,9 @@ Adds a Google Maps and several fields. Ideal for Sites that use allot of address
 
 ## Manager Usage
 - Install the Package
-- Create a new TV.
+- Create a new TV
 - Select under the tab Input Options : Input Type *Maps Tv*
-- Save and your Done.
+- Save and your Done
 
 ## Template Usage
     [[*tvValue:JSONtoChunk=`ChunkName`]]
