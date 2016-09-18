@@ -16,7 +16,7 @@ Adds a Google Maps and several fields. Ideal for Sites that use a lot of address
 - Install the Package
 - Create a new TV
 - Select under the tab Input Options : Input Type *Maps Tv*
-- Save and your Done
+- Save and you're Done
 
 ## Template Usage
     [[*tvValue:JSONtoChunk=`ChunkName`]]
