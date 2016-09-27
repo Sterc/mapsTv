@@ -25,19 +25,22 @@
  * @package MapsTv
  * @subpackage tv
  */
-class MapsTvInputRender extends modTemplateVarInputRender {
+class MapsTvInputRender extends modTemplateVarInputRender
+{
 
-    public function getTemplate() {
-    	$corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
+    public function getTemplate()
+    {
+        $corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
         return $corePath.'elements/tv/tpl/mapstv.input.tpl';
     }
 
-    public function process($value,array $params = array()) {
+    public function process($value, $params = array())
+    {
         $corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
         $assetsUrl = $this->modx->getOption('mapstv.assets_url', null, $this->modx->getOption('assets_url').'components/mapstv/');
 
-       	$js = $assetsUrl.'js/mgr/';
- 	 	$this->modx->regClientCSS($assetsUrl.'css/mgr.css');
+        $js = $assetsUrl.'js/mgr/';
+        $this->modx->regClientCSS($assetsUrl.'css/mgr.css');
 
         $this->modx->regClientStartupScript($assetsUrl.'js/lib/Ext.ux.GMapPanel3.js');
         $this->modx->regClientStartupScript($assetsUrl.'js/mgr/mapstv.js');
@@ -45,18 +48,19 @@ class MapsTvInputRender extends modTemplateVarInputRender {
 
         $dataArr = $this->modx->fromJSON($value);
 
-        $this->setPlaceholder('street',$dataArr['street']);
-        $this->setPlaceholder('housenumber',$dataArr['housenumber']);
-        $this->setPlaceholder('zipcode',$dataArr['zipcode']);
-        $this->setPlaceholder('city',$dataArr['city']);
-        $this->setPlaceholder('state',$dataArr['state']);
-        $this->setPlaceholder('country',$dataArr['country']);
-        $this->setPlaceholder('latitude',$dataArr['latitude']);
-        $this->setPlaceholder('longitude',$dataArr['longitude']);
+        $this->setPlaceholder('street', (isset($dataArr['street']) ? $dataArr['street'] : ''));
+        $this->setPlaceholder('housenumber', (isset($dataArr['housenumber']) ? $dataArr['housenumber']: ''));
+        $this->setPlaceholder('zipcode', (isset($dataArr['zipcode']) ? $dataArr['zipcode']: ''));
+        $this->setPlaceholder('city', (isset($dataArr['city']) ? $dataArr['city']: ''));
+        $this->setPlaceholder('state', (isset($dataArr['state']) ? $dataArr['state']: ''));
+        $this->setPlaceholder('country', (isset($dataArr['country']) ? $dataArr['country']: ''));
+        $this->setPlaceholder('latitude', (isset($dataArr['latitude']) ? $dataArr['latitude']: ''));
+        $this->setPlaceholder('longitude', (isset($dataArr['longitude']) ? $dataArr['longitude']: ''));
     }
 
-    public function getLexiconTopics(){
-    	return array('mapstv:default');
+    public function getLexiconTopics()
+    {
+        return array('mapstv:default');
     }
 }
 return 'MapsTvInputRender';
