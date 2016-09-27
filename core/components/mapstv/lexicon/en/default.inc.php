@@ -2,7 +2,7 @@
 /**
  * MapsTv
  *
- * Copyright 2012 by Wieger Sloot <modx+mapstv@sterc.nl>
+ * Copyright 2016 by Sterc <modx+mapstv@sterc.nl>
  *
  * MapsTv is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
@@ -41,3 +41,5 @@ $_lang['mapstv.longitude'] = 'Longitude';
 
 $_lang['mapstv.error'] = 'Location error';
 $_lang['mapstv.error_msg'] = 'The address provided has a low accuracy. Check the position of the marker.';
+
+$_lang['setting_mapstv.api_key'] = 'Google Maps API key';

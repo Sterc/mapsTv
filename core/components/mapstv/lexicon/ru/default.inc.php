@@ -2,7 +2,7 @@
 /**
  * MapsTv
  *
- * Copyright 2012 by Wieger Sloot <modx+mapstv@sterc.nl>
+ * Copyright 2016 by Sterc <modx+mapstv@sterc.nl>
  *
  * MapsTv is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software

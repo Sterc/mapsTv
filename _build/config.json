@@ -1,0 +1,32 @@
+{
+    "name": "MapsTv",
+    "lowCaseName": "mapstv",
+    "description": "Custom MODX Google Maps Marker TV.",
+    "author": "Sterc",
+    "version": "1.1.0",
+    "package":{  
+        "menus": [],
+        "elements": {
+            "snippets": [{
+                "name": "JSONtoChunk",
+                "description": "Custom output filter. If the input is an JSON array it will output the chunk you specified with placeholders for all the values.",
+                "file": "JSONtoChunk.snippet.php"
+            }],
+            "plugins": [{
+                "name": "MapsTv",
+                "description": "MapsTv plugin for MODX Revolution",
+                "file": "mapstv.plugin.php",
+                "events": [
+                    "OnTVInputRenderList",
+                    "OnDocFormRender"
+                ]
+            }]
+        },
+        "systemSettings": [{
+            "key": "api_key",
+            "type": "textfield",
+            "value": "",
+            "area": "general"
+       }]
+    }
+}

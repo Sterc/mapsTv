@@ -2,7 +2,7 @@
 /**
  * MapsTv
  *
- * Copyright 2012 by Wieger Sloot <modx+mapstv@sterc.nl>
+ * Copyright 2016 by Sterc <modx+mapstv@sterc.nl>
  *
  * MapsTv is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
@@ -31,10 +31,20 @@ $assetsUrl = $modx->getOption('mapstv.assets_url', null, $modx->getOption('asset
 $modx->lexicon->load('mapstv:default');
 
 switch ($modx->event->name) {
+    
     case 'OnTVInputRenderList':
-    	//Add lexicon
+    	// Add lexicon
     	$modx->controller->addLexiconTopic('mapstv:default');
-
         $modx->event->output($corePath.'elements/tv/input/');
         break;
+    
+    case 'OnDocFormRender':
+        // Add the Google Maps api to the resource form
+        $source = '//maps.google.com/maps/api/js';
+        if ($modx->getOption('mapstv.api_key', null, null, true)) {
+            $source .= '?key='.$modx->getOption('mapstv.api_key', null, null, true);
+        }
+        $modx->regClientStartupScript($source);
+        break;
+        
 }

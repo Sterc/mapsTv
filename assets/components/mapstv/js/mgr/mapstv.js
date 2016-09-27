@@ -1,7 +1,3 @@
-if (typeof google === 'undefined') {
-    document.write('<script src="//maps.google.com/maps/api/js"><\/script>');
-}
-
 mapsTv = {};
  
 mapsTv.panel = function(config) {
