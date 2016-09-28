@@ -1,5 +1,5 @@
 mapsTv = {};
- 
+
 mapsTv.panel = function(config) {
     config = config || {};
 
@@ -23,11 +23,9 @@ mapsTv.panel = function(config) {
 
     });
 
-    Ext.EventManager.onWindowResize(function () {
-        setTimeout(function(){
-            var width = Ext.get('mapstv'+config.tvId).getViewSize().width;
-            Ext.getCmp('tv'+config.tvId+'-gmappanel').setSize(width,250);
-        },150);
+    // Trigger resize on gmappanel on window resize
+    Ext.EventManager.onWindowResize(function() {
+        resizeGmapPanel();
     });
 
     Ext.apply(config,{
@@ -175,9 +173,9 @@ mapsTv.panel = function(config) {
             ,bodyStyle: 'padding: 5px;'
             ,listeners: {
                 beforeRender: function(){
-                    //Check if laltude and longitude are set
+                    // Check if latitude and longitude are set
                     if(config.record.latitude != 0 && config.record.longitude != 0){
-                        //Add marker with latitude and longitude
+                        // Add marker with latitude and longitude
                         var point = new google.maps.LatLng(config.record.latitude, config.record.longitude);
                         this.setCenter = {
                             lat: config.record.latitude
@@ -189,8 +187,6 @@ mapsTv.panel = function(config) {
                             ,listeners:{
                                 drag: function(e){
                                     var LatLng = e.latLng;
-									console.log('MOVE #1');
-									console.log(LatLng.lat());
                                     Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng.lat());
                                     Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng.lng());
                                     Ext.getCmp('mapstv'+config.tvId+'-latitude').fireEvent('change');
@@ -198,10 +194,10 @@ mapsTv.panel = function(config) {
                                 }
                             }        
                         };
-                    }else{
+                    } else {
                         //Check if address is set
                         if(config.record.street && config.record.housenumber && config.record.zipcode && config.record.city && config.record.state && config.record.country){
-                        //Add marker with address
+                            //Add marker with address
                             this.setCenter = {
                                 geoCodeAddr: config.record.street +' '+ config.record.housenumber +' '+ config.record.zipcode +' '+ config.record.city +' '+ config.record.state +' '+ config.record.country
                                 ,marker: {
@@ -218,21 +214,21 @@ mapsTv.panel = function(config) {
                                     }
                                 }    
                             };
-                        }else{
-                            //Nothing isset
                         }
                     }
                 }
                 ,afterrender: function(){
-                    setTimeout(function(){
-                        var vtabswidth = 132;
-                        var padding = 45 + 30;
-                        var width = Ext.get('modx-resource-settings').getViewSize().width - vtabswidth - padding;
-                        Ext.getCmp('tv'+config.tvId+'-gmappanel').setSize(width,250);
-                    },100);
+                    // Listen to the tabchange on the modx-resource-tabs section
+                    // When TV tab is selected, recalculate and set the width of the gmappanel
+                    Ext.onReady(function() {
+                        Ext.getCmp('modx-resource-tabs').on('tabchange', function(tbp,tab){
+                            if (tab.id == 'modx-panel-resource-tv') {
+                                resizeGmapPanel();
+                            }
+                        });
+                    });
                     Ext.get('modx-tv-tabs').on('click',function(){
-                        var width = Ext.get('mapstv'+config.tvId).getViewSize().width;
-                        Ext.getCmp('tv'+config.tvId+'-gmappanel').setSize(width,250);
+                        resizeGmapPanel();
                     });
                 }
             }
@@ -300,6 +296,18 @@ mapsTv.panel = function(config) {
         }] 
     });
     mapsTv.panel.superclass.constructor.call(this,config);
+
+    function resizeGmapPanel() {
+        var tvId = config.tvId;
+        // Using settimeout to allow the calculation of the mapstv div width
+        setTimeout(function(){
+            var width = Ext.get('mapstv'+tvId).getViewSize().width;
+            if (width > 0) {
+                Ext.getCmp('tv'+tvId+'-gmappanel').setSize(width,250);
+            }
+        },200);
+    }
+
 };
  
 //Ext.extend(mapsTv.panel,MODx.Panel,{
@@ -317,6 +325,7 @@ Ext.extend(mapsTv.panel,Ext.Container,{
                 Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');          
             }
         });
-    }
+    },
+    
 });
 Ext.reg('mapstv-panel',mapsTv.panel);
