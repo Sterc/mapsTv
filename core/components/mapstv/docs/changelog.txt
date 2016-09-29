@@ -1,3 +1,9 @@
+MapsTv 1.1.0pl
+==============
+- Add system setting for Google Map API key (#19)
+- Improve resizing of gmappanel on tab change / window resize (#20)
+- Fix check empty array vars (#17)
+
 MapsTv 1.0.2pl
 ==============
 - Added Czech translation
