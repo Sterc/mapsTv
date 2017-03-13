@@ -45,6 +45,8 @@ switch ($modx->event->name) {
             $source .= '?key='.$modx->getOption('mapstv.api_key', null, null, true);
         }
         $modx->regClientStartupScript($source);
+        $modx->regClientStartupScript($assetsUrl . 'js/mgr/mapstv.js');
+        $modx->regClientStartupScript($assetsUrl . 'js/lib/Ext.ux.GMapPanel3.js');
         break;
         
 }
