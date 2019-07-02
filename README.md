@@ -30,3 +30,8 @@ Adds a Google Maps and several fields. Ideal for Sites that use a lot of address
 - _Country_ : [[+country]]
 - _Latitude_ : [[+latitude]]
 - _Longitude_ : [[+longitude]]
+
+# Free Extra
+This is a free extra and the code is publicly available for you to change. The extra is being actively maintained and you're free to put in pull requests which match our roadmap. Please create an issue if the pull request differs from the roadmap so we can make sure we're on the same page.
+
+Need help? [Approach our support desk for paid premium support.](mailto:service@sterc.com)
