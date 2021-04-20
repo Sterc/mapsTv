@@ -32,13 +32,13 @@ mapsTv.panel = function(config) {
         border:false
         ,width: '100%'
         ,listeners: {}
-        ,items:[{ 
+        ,items:[{
             xtype: 'container'
             ,border: false
             ,layout: 'anchor'
             ,width:'100%'
             ,anchorSize: {width:'98%', height:'auto'}
-            ,items: [{ 
+            ,items: [{
                 xtype: 'container'
                 ,border: false
                 ,layout: 'form'
@@ -47,7 +47,7 @@ mapsTv.panel = function(config) {
                 ,width: '48%'
                 ,anchor: 'left auto'
                 ,style: 'float:left;'
-                ,items: [{ 
+                ,items: [{
                     xtype: 'textfield'
                     ,name: 'street'
                     ,id: 'mapstv'+config.tvId+'-street'
@@ -55,7 +55,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.street
-                    ,listeners: { 
+                    ,tabIndex: 1
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.street = this.getValue();
@@ -70,7 +71,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 25
                     ,width:'98%'
                     ,value: config.record.zipcode
-                    ,listeners: { 
+                    ,tabIndex: 3
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.zipcode = this.getValue();
@@ -85,15 +87,16 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.state
-                    ,listeners: { 
+                    ,tabIndex: 5
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.state = this.getValue();
                             Ext.get('tv'+config.tvId).dom.value = JSON.stringify(config.record);
                         }
                     }
-                }] 
-            },{ 
+                }]
+            },{
                 xtype: 'container'
                 ,border: false
                 ,layout: 'form'
@@ -110,7 +113,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.housenumber
-                    ,listeners: { 
+                    ,tabIndex: 2
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.housenumber = this.getValue();
@@ -125,7 +129,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.city
-                    ,listeners: { 
+                    ,tabIndex: 4
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.city = this.getValue();
@@ -140,15 +145,16 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.country
-                    ,listeners: { 
+                    ,tabIndex: 6
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.country = this.getValue();
                             Ext.get('tv'+config.tvId).dom.value = JSON.stringify(config.record);
                         }
                     }
-                }] 
-            }] 
+                }]
+            }]
         },{
             xtype: 'container'
             ,style: 'clear:both;'
@@ -169,7 +175,7 @@ mapsTv.panel = function(config) {
             ,gmapType: 'map'
             ,zoomLevel: 14
             ,mapConfOpts: ['enableScrollWheelZoom','enableDoubleClickZoom']
-            ,mapControls: ['GSmallMapControl','GMapTypeControl']               
+            ,mapControls: ['GSmallMapControl','GMapTypeControl']
             ,bodyStyle: 'padding: 5px;'
             ,listeners: {
                 beforeRender: function(){
@@ -183,16 +189,16 @@ mapsTv.panel = function(config) {
                             ,marker: {
                                 title: config.record.street +' '+ config.record.housenumber
                                 ,draggable: true
-                            }                
+                            }
                             ,listeners:{
                                 drag: function(e){
                                     var LatLng = e.latLng;
                                     Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng.lat());
                                     Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng.lng());
                                     Ext.getCmp('mapstv'+config.tvId+'-latitude').fireEvent('change');
-                                    Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');           
+                                    Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');
                                 }
-                            }        
+                            }
                         };
                     } else {
                         //Check if address is set
@@ -203,16 +209,16 @@ mapsTv.panel = function(config) {
                                 ,marker: {
                                     title: config.record.street +' '+ config.record.housenumber
                                     ,draggable: true
-                                }    
+                                }
                                 ,listeners:{
                                     drag: function(e){
                                         var LatLng = e.latLng;
                                         Ext.getCmp('mapstv'+config.tvId+'-latitude').setValue(LatLng.lat());
                                         Ext.getCmp('mapstv'+config.tvId+'-longitude').setValue(LatLng.lng());
                                         Ext.getCmp('mapstv'+config.tvId+'-latitude').fireEvent('change');
-                                        Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');                                                   
+                                        Ext.getCmp('mapstv'+config.tvId+'-longitude').fireEvent('change');
                                     }
-                                }    
+                                }
                             };
                         }
                     }
@@ -256,7 +262,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.latitude
-                    ,listeners: { 
+                    ,tabIndex: 7
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.latitude = this.getValue();
@@ -281,7 +288,8 @@ mapsTv.panel = function(config) {
                     ,maxLength: 255
                     ,width:'98%'
                     ,value: config.record.longitude
-                    ,listeners: { 
+                    ,tabIndex: 8
+                    ,listeners: {
                         'change': function(){
                             MODx.fireResourceFormChange();
                             config.record.longitude = this.getValue();
@@ -293,7 +301,7 @@ mapsTv.panel = function(config) {
         },{
             xtype: 'container'
             ,style: 'clear:both;'
-        }] 
+        }]
     });
     mapsTv.panel.superclass.constructor.call(this,config);
 
@@ -309,23 +317,23 @@ mapsTv.panel = function(config) {
     }
 
 };
- 
+
 //Ext.extend(mapsTv.panel,MODx.Panel,{
 Ext.extend(mapsTv.panel,Ext.Container,{
     generate: function(){
         var tvId = this.ownerCt.tvId
         var address = Ext.getCmp('mapstv'+tvId+'-street').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-housenumber').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-zipcode').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-city').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-state').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-country').getValue();
- 
+
         Ext.getCmp('tv'+tvId+'-gmappanel').geoCodeLookup(address, {title: Ext.getCmp('mapstv'+tvId+'-street').getValue() +' '+ Ext.getCmp('mapstv'+tvId+'-housenumber').getValue(), draggable: true}, true, true, {
             drag: function(e){
                 var LatLng = e.latLng;
                 Ext.getCmp('mapstv'+tvId+'-latitude').setValue(LatLng.lat());
                 Ext.getCmp('mapstv'+tvId+'-longitude').setValue(LatLng.lng());
                 Ext.getCmp('mapstv'+tvId+'-latitude').fireEvent('change');
-                Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');          
+                Ext.getCmp('mapstv'+tvId+'-longitude').fireEvent('change');
             }
         });
     },
-    
+
 });
 Ext.reg('mapstv-panel',mapsTv.panel);
