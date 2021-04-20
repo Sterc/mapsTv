@@ -34,7 +34,7 @@ class MapsTvInputRender extends modTemplateVarInputRender
         return $corePath.'elements/tv/tpl/mapstv.input.tpl';
     }
 
-    public function process($value, $params = array())
+    public function process($value, array $params = array())
     {
         $corePath = $this->modx->getOption('mapstv.core_path', null, $this->modx->getOption('core_path').'components/mapstv/');
         $assetsUrl = $this->modx->getOption('mapstv.assets_url', null, $this->modx->getOption('assets_url').'components/mapstv/');
