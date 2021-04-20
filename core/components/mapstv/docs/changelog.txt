@@ -1,20 +1,26 @@
-MapsTv 1.1.0pl
+Google Maps TV 1.2.0
+==============
+- Add tabIndex to input fields
+- Add array declaration to function parameter to prevent PHP warning (PR#24 thanks to @Finetuned)
+- Add Google API key section to readme (PR#28 thanks to @mindeffects)
+
+Google Maps TV 1.1.0
 ==============
 - Add system setting for Google Map API key (#19)
 - Improve resizing of gmappanel on tab change / window resize (#20)
 - Fix check empty array vars (#17)
 
-MapsTv 1.0.2pl
+Google Maps TV 1.0.2
 ==============
 - Added Czech translation
 - Updated English lexicon
 - Optimized layout for modX 2.3+
 - Fixed crash on not found data
 
-MapsTv 1.0.1pl
+Google Maps TV 1.0.1
 ==============
 - Optimized GEO lookup for not accurate data.
 
-MapsTv 1.0.0pl
+Google Maps TV 1.0.0
 ==============
 - Initial release.

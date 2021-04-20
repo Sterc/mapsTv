@@ -1,18 +1,17 @@
-# MapsTV
+# Google Maps TV
 Custom MODX Google Maps Marker Template Variable.
-Adds a Google Maps and several fields. Ideal for Sites that use a lot of address related information.
+Adds a Google Map along with additional fields. Ideal for websites that use a lot of address related information.
 
 ## Features
 - Clean interface
-- Google Maps Preview
-- Generate Latitude and Longitude with one button click
-- Drag 'n Drop to easily find and change the latitude and longitude of correct location
+- Google Maps preview
+- Generate latitude and longitude with one click
+- Drag 'n drop to easily find and change the latitude and longitude of correct location
 - Stored in JSON
 - Allows several instances of Google Maps
-- Snippet for JSONtoChunk
 
-## Setup GOOGLE
-- You need a Google Maps API key for the maps access. Please restrict this key to your domain to prevent financial surprises!
+## Setup Google Maps API key
+- You need a Google Maps API key to be abled to access the map. Please restrict this key to your domain to prevent unauthorized usage of your key.
 - Enable the APIs (libraries) "Maps JavaScript API" and "Geocoding API"
 - Make sure you have configured an a valid billing account
 
