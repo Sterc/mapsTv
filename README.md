@@ -11,11 +11,16 @@ Adds a Google Maps and several fields. Ideal for Sites that use a lot of address
 - Allows several instances of Google Maps
 - Snippet for JSONtoChunk
 
+## Setup GOOGLE
+- You need a Google Maps API key for the maps access. Please restrict this key to your domain to prevent financial surprises!
+- Enable the APIs (libraries) "Maps JavaScript API" and "Geocoding API"
+- Make sure you have configured an a valid billing account
 
 ## Manager Usage
 - Install the Package
 - Create a new TV
 - Select under the tab Input Options : Input Type *Maps Tv*
+- Store your Google Maps API key (see above) in the system settings section "mapstv"
 - Save and you're Done
 
 ## Template Usage
