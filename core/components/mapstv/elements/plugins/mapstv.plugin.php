@@ -27,6 +27,7 @@
  */
 $corePath = $modx->getOption('mapstv.core_path', null, $modx->getOption('core_path').'components/mapstv/');
 $assetsUrl = $modx->getOption('mapstv.assets_url', null, $modx->getOption('assets_url').'components/mapstv/');
+$gmapSource = "//maps.google.com/maps/api/js?key=".$modx->getOption("mapstv.api_key", null, null, true);
 
 $modx->lexicon->load('mapstv:default');
 
@@ -39,12 +40,17 @@ switch ($modx->event->name) {
         break;
     
     case 'OnDocFormRender':
-        // Add the Google Maps api to the resource form
-        $source = '//maps.google.com/maps/api/js';
-        if ($modx->getOption('mapstv.api_key', null, null, true)) {
-            $source .= '?key='.$modx->getOption('mapstv.api_key', null, null, true);
-        }
-        $modx->regClientStartupScript($source);
+        // Add the Google Maps api
+        $modx->regClientStartupScript($gmapSource);
         break;
-        
+
+    case "OnManagerPageBeforeRender":
+    	// Add lexicon
+        $modx->controller->addLexiconTopic("mapstv:default");
+        // Register x-type
+        $modx->controller->addJavascript($assetsUrl . "js/mgr/mapstv.js");
+        $modx->controller->addJavascript($assetsUrl . "js/lib/Ext.ux.GMapPanel3.js");
+        // Add the Google Maps api
+        $modx->controller->addJavascript($gmapSource);
+        break;        
 }

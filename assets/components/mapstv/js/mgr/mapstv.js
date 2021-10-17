@@ -224,6 +224,8 @@ mapsTv.panel = function(config) {
                     }
                 }
                 ,afterrender: function(){
+                    // return if no resource, maybe cmp
+                    if (!Ext.getCmp("modx-resource-tabs")) return;
                     // Listen to the tabchange on the modx-resource-tabs section
                     // When TV tab is selected, recalculate and set the width of the gmappanel
                     Ext.onReady(function() {
