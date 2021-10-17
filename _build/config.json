@@ -18,7 +18,8 @@
                 "file": "mapstv.plugin.php",
                 "events": [
                     "OnTVInputRenderList",
-                    "OnDocFormRender"
+                    "OnDocFormRender",
+                    "OnManagerPageBeforeRender"
                 ]
             }]
         },
