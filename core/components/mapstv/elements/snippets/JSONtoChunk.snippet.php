@@ -10,7 +10,7 @@
  */
 $output = $input;
 $array = $modx->fromJSON($input);
-if (count($array) > 0) {
+if ($array && count($array) > 0) {
     $chunk = $modx->getObject('modChunk', array('name' => $options));
     if ($chunk) {
         $output = $chunk->process($array);
